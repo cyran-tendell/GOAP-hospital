@@ -1,0 +1,61 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class WorldState
+{
+    public string key;
+    public int value;
+}
+
+
+public class WorldStates : MonoBehaviour
+{
+    public Dictionary<string, int> WorldStates
+
+    public WorldStates();
+    {
+        states = new Dictionary<string, int>();
+    }
+
+    public bool HasStates(string key)
+    {
+        return states.ContainKey(key)
+    }
+
+    void Addstates(string key, int value)
+    {
+        states.Add(key, value);
+    }
+
+    public void ModifyState(string key, int value)
+    {
+        if(states.ContainKey(key))
+        {
+            states(key) += value;
+            if (states(key) <= 0)
+                RemoveState(key);
+        }
+        else
+            states.Add(key, value);
+    }
+
+    public void RemoveState(string key)
+    {
+        if (states.ContainsKey(key))
+            states.Remove(key);
+    }
+
+    public void SetStates(strng key, int value)
+    {
+        if (states.ContainsKey(key))
+            states[key] = value;
+        else
+            states.Add(key, value);
+    }
+    public Dictionary<string, int> GetStates()
+    {
+        return states;
+    }
+}
